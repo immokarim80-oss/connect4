@@ -42,3 +42,33 @@ def colonne(grid: Grid, player: int) -> bool:
             else:
                 count = 0
     return False
+
+   
+def diagonale(grid: Grid, player: int) -> bool:
+    """Renvoie True si le joueur a gagné sur une diagonale"""
+    nb_rows = len(grid)
+    nb_cols = len(grid[0])
+
+    # Diagonales descendantes
+    for row in range(nb_rows - 3):
+        for col in range(nb_cols - 3):
+            if (
+                grid[row][col] == player
+                and grid[row + 1][col + 1] == player
+                and grid[row + 2][col + 2] == player
+                and grid[row + 3][col + 3] == player
+            ):
+                return True
+
+    # Diagonales montantes
+    for row in range(3, nb_rows):
+        for col in range(nb_cols - 3):
+            if (
+                grid[row][col] == player
+                and grid[row - 1][col + 1] == player
+                and grid[row - 2][col + 2] == player
+                and grid[row - 3][col + 3] == player
+            ):
+                return True
+
+    return False
