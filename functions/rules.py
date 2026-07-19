@@ -72,3 +72,47 @@ def diagonale(grid: Grid, player: int) -> bool:
                 return True
 
     return False
+
+
+def final(grid: Grid) -> bool:
+    """Renvoie True si le jeu est terminé."""
+
+    if (
+        ligne(grid, YELLOW)
+        or colonne(grid, YELLOW)
+        or diagonale(grid, YELLOW)
+    ):
+        return True
+
+    if (
+        ligne(grid, RED)
+        or colonne(grid, RED)
+        or diagonale(grid, RED)
+    ):
+        return True
+
+    # Plateau plein, match nul
+    for row in grid:
+        if 0 in row:
+            return False
+
+    return True
+
+def score(grid: Grid) -> Score:
+    """Renvoie le score d'une position terminale."""
+
+    if (
+        ligne(grid, YELLOW)
+        or colonne(grid, YELLOW)
+        or diagonale(grid, YELLOW)
+    ):
+        return 1.0
+
+    if (
+        ligne(grid, RED)
+        or colonne(grid, RED)
+        or diagonale(grid, RED)
+    ):
+        return -1.0
+
+    return 0.0
