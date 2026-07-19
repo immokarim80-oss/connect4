@@ -19,8 +19,6 @@ Strategy = Callable[[State], Action]
 
 YELLOW: Player = 1
 RED: Player = -1
-Y_COIN: int = 1
-R_COIN: int = -1
 STARTING_GRID: Grid = (
     (0, 0, 0, 0, 0, 0, 0),
     (0, 0, 0, 0, 0, 0, 0),

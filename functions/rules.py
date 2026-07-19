@@ -1,8 +1,8 @@
 """Connect 4 (Puissance 4)"""
 
-from tools import (State, Action, STARTING_STATE)
+from tools import (State, Action, Grid, RED, YELLOW, Score)
 
-def legals_actions(state: State) -> list[Action]:
+def legals(state: State) -> list[Action]:
     """Renvoie la liste des actions légales pour un état donné"""
     grid, player = state
     actions: list[Action] = []
@@ -14,4 +14,16 @@ def legals_actions(state: State) -> list[Action]:
         col += 1
     return actions
 
-print(legals_actions(STARTING_STATE))
+def ligne(grid: Grid, player: int) -> bool:
+    """Renvoie True si le joueur a gagné sur une ligne"""
+    for row in grid:
+        count = 0
+        for cell in row:
+            if cell == player:
+                count += 1
+                if count == 4:
+                    return True
+            else:
+                count = 0
+    return False
+
