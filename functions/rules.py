@@ -27,3 +27,18 @@ def ligne(grid: Grid, player: int) -> bool:
                 count = 0
     return False
 
+def colonne(grid: Grid, player: int) -> bool:
+    """Renvoie True si le joueur a gagné sur une colonne"""
+    nb_rows = len(grid)
+    nb_cols = len(grid[0])
+
+    for col in range(nb_cols):
+        count = 0
+        for row in range(nb_rows):
+            if grid[row][col] == player:
+                count += 1
+                if count == 4:
+                    return True
+            else:
+                count = 0
+    return False
