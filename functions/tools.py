@@ -9,7 +9,7 @@ Coord = tuple[
    # utile pour détecter un état final
 # le premier entier représente le numéro de ligne et le second le numéro de colonne.
 Player = int  # 1 pour le joueur jaune (YELLOW), -1 pour le joueur rouge (RED)
-Column = int  # le numéro de la colonne où le joueur souhaite jouer
+Column = int  # le numéro de la colonne où le joueur souhaite jouer (entre 0 et 6)
 Action = tuple[Column, Player] # le joueur Player place une pièce dans la colonne Column
 Score = float
 State = tuple[Grid, Player]
