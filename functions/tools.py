@@ -6,10 +6,11 @@ Grid = tuple[tuple[int, ...], ...]  # en s'inspirant du TP
 Coord = tuple[
     int, int
 ]  # on simplifie ici en utilisant deux entiers au lieu des lettres pour les colonnes
+   # utile pour détecter un état final
 # le premier entier représente le numéro de ligne et le second le numéro de colonne.
 Player = int  # 1 pour le joueur jaune (YELLOW), -1 pour le joueur rouge (RED)
 Column = int  # le numéro de la colonne où le joueur souhaite jouer
-Action = tuple[Column, Player]
+Action = tuple[Column, Player] # le joueur Player place une pièce dans la colonne Column
 Score = float
 State = tuple[Grid, Player]
 Strategy = Callable[[State], Action]
